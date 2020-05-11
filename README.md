@@ -17,10 +17,10 @@ These instructions will get you a copy of the project up and running on your loc
 $ git clone "this repo URL"
 ```
 
-* Create .env in each folder and add your port, database and domain.
+Create an .env file in each folder and add your ports (you can use 3000 and 5000), database name and domain.
 
 ```sh
-$ npm i inside each folder (server & client)
+$ npm i inside each folder (server and client)
 ```
 
 You hava to run each command on different terminal
