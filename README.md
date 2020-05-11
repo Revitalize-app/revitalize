@@ -8,8 +8,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Prerequisites
 
-* You need to have npm installed.
-* You need to terminals.
+* You need to have npm installed & two terminals running at the same time.
 * Clone this repo.
 
 ## Installing
