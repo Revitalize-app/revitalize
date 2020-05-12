@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const Coaster = require('./../models/coaster.model')
+const Coaster = require('./../models/project.model')
 
 router.get('/getAllCoasters', (req, res, next) => {
     Coaster.find()
