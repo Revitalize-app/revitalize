@@ -66,8 +66,8 @@ Promise.all([deleteUsers, deleteProjects])
                     goal: 10,
                     currentAmount: 0,
                     projectType: faker.random.arrayElement(['restructuring', 'nature cleaning', 'beach cleaning', 'city cleaning']),
-                    contributors: [],
-                    helpers: []
+                    contributors: [allU[0]._id, allU[2]._id, allU[2]._id],
+                    helpers: [allU[3]._id, allU[4]._id, allU[5]._id]
                 })
             
             promises.push(Project.create(projects)

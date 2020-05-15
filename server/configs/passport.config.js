@@ -17,6 +17,9 @@ module.exports = app => {
     passport.serializeUser((user, next) => next(null, user._id))
     passport.deserializeUser((id, next) => {
         User.findById(id)
+            .populate('ownProjects')
+            .populate('helping')
+            .populate('contributing')
             .then(theUser => next(null, theUser))
             .catch(err => next(err))
     })
@@ -27,6 +30,9 @@ module.exports = app => {
 
     passport.use(new LocalStrategy({ passReqToCallback: true }, (req, username, password, next) => {
         User.findOne({ username })
+            .populate('ownProjects')
+            .populate('helping')
+            .populate('contributing')
             .then(user => {
                 if (!user) {
                     return next(null, false, { message: "Nombre de usuario incorrecto" })
