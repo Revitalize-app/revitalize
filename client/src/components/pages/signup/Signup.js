@@ -56,17 +56,17 @@ class Signup extends Component {
                 <Row>
                     <Col md={{ span: 4, offset: 4 }}>
 
-                        <h3>Registro de usuario</h3>
+                        <h3>Sign up</h3>
                         <hr></hr>
                         <Form onSubmit={this.handleSubmit}>
 
                             <Form.Group controlId="name">
-                                <Form.Label>Usuario</Form.Label>
+                                <Form.Label>Username</Form.Label>
                                 <Form.Control name="username" type="text" value={this.state.username} onChange={this.handleInputChange} />
                             </Form.Group>
 
                             <Form.Group controlId="pwd">
-                                <Form.Label>Contraseña</Form.Label>
+                                <Form.Label>Password</Form.Label>
                                 <Form.Control name="password" type="password" value={this.state.password} onChange={this.handleInputChange} />
                             </Form.Group>
 
@@ -75,10 +75,10 @@ class Signup extends Component {
                                 style={{ display: this.state.errorMessage ? 'block' : 'none' }}
                             >{this.state.errorMessage}</p>
 
-                            <Button variant="dark" type="submit">Registrarme</Button>
+                            <Button variant="dark" type="submit">Sign up</Button>
                         </Form>
 
-                        <p><small>¿Ya tienes cuenta? <Link to="/login">Inicia sesión</Link></small></p>
+                        <p><small>Do you have already an account? <Link to="/login">Login</Link></small></p>
 
                     </Col>
                 </Row>

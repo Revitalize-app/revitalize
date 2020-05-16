@@ -6,19 +6,19 @@ import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 
 
-const CoasterCard = props => {
+const ProjectCard = props => {
 
     return (
         <Col lg={3} md={6}>
             <Card as="article">
-                <Card.Img variant="top" src={props.imageUrl} />
+                <Card.Img variant="top" src={props.photos[0]} />
                 <Card.Body>
-                    <Card.Title>{props.title}</Card.Title>
-                    <Link to={`/coasters/${props._id}`} className="btn btn-dark btn-block btn-sm">Ver detalles</Link>
+                    <Card.Title>{props.description}</Card.Title>
+                    <Link to={`/projects/${props._id}`} className="btn btn-dark btn-block btn-sm">see more details</Link>
                 </Card.Body>
             </Card>
         </Col>
     )
 }
 
-export default CoasterCard
+export default ProjectCard

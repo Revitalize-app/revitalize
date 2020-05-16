@@ -56,17 +56,17 @@ class Login extends Component {
                 <Row>
                     <Col md={{ span: 4, offset: 4 }}>
 
-                        <h3>Inicio de sesión</h3>
+                        <h3>Login</h3>
                         <hr></hr>
                         <Form onSubmit={this.handleSubmit}>
 
                             <Form.Group controlId="name">
-                                <Form.Label>Usuario</Form.Label>
+                                <Form.Label>Username</Form.Label>
                                 <Form.Control name="username" type="text" value={this.state.username} onChange={this.handleInputChange} />
                             </Form.Group>
 
                             <Form.Group controlId="pwd">
-                                <Form.Label>Contraseña</Form.Label>
+                                <Form.Label>Password</Form.Label>
                                 <Form.Control name="password" type="password" value={this.state.password} onChange={this.handleInputChange} />
                             </Form.Group>
 
@@ -75,10 +75,10 @@ class Login extends Component {
                                 style={{ display: this.state.errorMessage ? 'block' : 'none' }}
                             >{this.state.errorMessage}</p>
 
-                            <Button variant="dark" type="submit">Iniciar sesión</Button>
+                            <Button variant="dark" type="submit">Log in</Button>
                         </Form>
 
-                        <p><small>¿No tienes cuenta? <Link to="/signup">Regístrate</Link></small></p>
+                        <p><small>Don´t you have an account yet? <Link to="/signup">Sign Up</Link></small></p>
 
                     </Col>
                 </Row>

@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import CoasterService from '../../../service/coasters.service'
+import ProjectService from '../../../service/projects.service'
 
-import './CoastersList.css'
+import './ProjectList.css'
 
-import CoasterCard from './CoasterCard'
-import CoasterForm from './../coaster-form/CoasterForm'
+import ProjectCard from './ProjectCard'
+import ProjectForm from '../project-form/ProjectForm'
 
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -13,7 +13,7 @@ import Toast from 'react-bootstrap/Toast'
 import Modal from 'react-bootstrap/Modal'
 
 
-class CoasterList extends Component {
+class ProjectList extends Component {
 
     constructor() {
         super()
@@ -23,9 +23,9 @@ class CoasterList extends Component {
                 show: false,
                 text: ''
             },
-            coasters: []
+            projects: []
         }
-        this.coasterService = new CoasterService()
+        this.projectService = new ProjectService()
     }
 
 
@@ -37,40 +37,40 @@ class CoasterList extends Component {
         this.setState({ toast: toastCopy })
     }
 
-    getAllCoasters = () => {
-        this.coasterService.getCoasters()
-            .then(response => this.setState({ coasters: response.data }))
+    getAllProjects = () => {
+        this.projectService.getProjects()
+            .then(response => this.setState({ projects: response.data }))
             .catch(err => console.log(err))
     }
 
 
     componentDidMount = () => {
-        this.getAllCoasters()
+        this.getAllProjects()
     }
 
 
-    finishCoasterPost = () => {
-        this.getAllCoasters()
+    finishProjectPost = () => {
+        this.getAllProjects()
         this.handleModal(false)
-        this.handletoast(true, 'Registro creado en BBDD')
+        this.handletoast(true, 'Saved in the Data Base')
     }
 
     render() {
         return (
             <Container as="section">
 
-                <h1>Listado de montañas rusas</h1>
+                <h1>Projects List</h1>
 
-                {this.props.loggedInUser && <Button onClick={() => this.handleModal(true)} variant="dark" style={{ marginBottom: '20px' }}>Crear nueva montaña rusa</Button>}
+                {this.props.loggedInUser && <Button onClick={() => this.handleModal(true)} variant="dark" style={{ marginBottom: '20px' }}>Create new project</Button>}
 
-                <Row className="coasters-list">
-                    {this.state.coasters.map(elm => <CoasterCard key={elm._id} {...elm} />)}
+                <Row className="projects-list">
+                    {this.state.projects.map(elm => <ProjectCard key={elm._id} {...elm} />)}
                 </Row>
 
 
                 <Modal show={this.state.modalShow} onHide={() => this.handleModal(false)}>
                     <Modal.Body>
-                        <CoasterForm finishCoasterPost={this.finishCoasterPost} closeModal={() => this.handleModal(false)} />
+                        <ProjectForm finishProjectPost={this.finishProjectPost} closeModal={() => this.handleModal(false)} />
                     </Modal.Body>
                 </Modal>
 
@@ -78,7 +78,7 @@ class CoasterList extends Component {
                 <Toast onClose={() => this.handletoast(false)} show={this.state.toast.show} delay={3000} autohide>
                     <Toast.Header>
                         <img src="holder.js/20x20?text=%20" className="rounded mr-2" alt="" />
-                        <strong className="mr-auto">Mensaje</strong>
+                        <strong className="mr-auto">Message</strong>
                     </Toast.Header>
                     <Toast.Body>{this.state.toast.text}</Toast.Body>
                 </Toast>
@@ -89,4 +89,4 @@ class CoasterList extends Component {
     }
 }
 
-export default CoasterList
+export default ProjectList

@@ -1,58 +1,58 @@
 import React, { Component } from 'react'
-import CoasterService from '../../../service/coasters.service'
+import ProjectService from '../../../service/projects.service'
 
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
-import './CoasterDetails.css'
+import './ProjectDetails.css'
 
 import { Link } from 'react-router-dom'
 
-class CoasterDetails extends Component {
+class ProjectDetails extends Component {
 
     constructor(props) {
         super(props)
         this.state = {}
-        this.coasterService = new CoasterService()
+        this.projectService = new ProjectService()
     }
 
 
-    getCoasterInfo() {
-        const id = this.props.match.params.coasterId
-        this.coasterService.getCoaster(id)
+    getProjectInfo() {
+        const id = this.props.match.params.projectId
+        this.projectService.getProject(id)
             .then(response => this.setState(response.data))
             .catch(err => console.log(err))
     }
 
 
     componentDidMount = () => {
-        this.getCoasterInfo()
+        this.getProjectInfo()
     }
 
     render() {
         return (
-            <Container as="section" className="coaster-details">
+            <Container as="section" className="project-details">
                 <h1>{this.state.title}</h1>
                 <hr />
                 <Row>
                     <Col md={{ span: 4, offset: 1 }}>
                         <h4>Info</h4>
                         <p>{this.state.description}</p>
-                        <h4>Detalles técnicos</h4>
+                        <h4>Details</h4>
                         <ul>
-                            <li>Longitud: {this.state.length}</li>
-                            <li>Inversiones: {this.state.inversions}</li>
+                            <li>Description: {this.state.description}</li>
+                            <li>Goal ammount: {this.state.goal}</li>
                         </ul>
                     </Col>
                     <Col md={6}>
-                        <img src={this.state.imageUrl} alt={this.state.title}></img>
+                        <img src={this.state.photos[0]} alt="Project photos"></img>
                     </Col>
                 </Row>
-                <Link to="/coasters" className="btn btn-dark">Volver</Link>
+                <Link to="/projects" className="btn btn-dark">Back</Link>
             </Container>
         )
     }
 }
 
-export default CoasterDetails
+export default ProjectDetails

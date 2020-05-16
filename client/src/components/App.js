@@ -6,8 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 
 import Navigation from './ui/navbar/Navbar'
-import CoasterList from './pages/coaster-list/CoasterList'
-import CoasterDetails from './pages/coaster-details/CoasterDetails'
+import ProjectList from './pages/project-list/ProjectList'
+import ProjectDetails from './pages/project-details/ProjectDetails'
 import Signup from './pages/signup/Signup'
 import Login from './pages/login/Login'
 import Profile from './pages/profile/Profile'
@@ -45,8 +45,8 @@ class App extends Component {
         <main>
 
           <Switch>
-            <Route path="/coasters" exact render={() => <CoasterList loggedInUser={this.state.loggedInUser} />} />
-            <Route path="/coasters/:coasterId" render={props => <CoasterDetails {...props} />} />
+            <Route path="/projects" exact render={() => <ProjectList loggedInUser={this.state.loggedInUser} />} />
+            <Route path="/projects/:projectId" render={props => <ProjectDetails {...props} />} />
             <Route path="/signup" render={props => <Signup {...props} setTheUser={this.setTheUser} />} />
             <Route path="/login" render={props => <Login {...props} setTheUser={this.setTheUser} />} />
             <Route path="/profile" render={() => this.state.loggedInUser ? <Profile loggedInUser={this.state.loggedInUser} /> : <Redirect to="/" />} />

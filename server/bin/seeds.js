@@ -37,7 +37,7 @@ Promise.all([deleteUsers, deleteProjects])
                 },
                 profileImg: faker.internet.avatar(),
                 likes: faker.random.number(),
-                typeUser: 'person',
+                typeUser: faker.random.arrayElement(['person', 'enterprise']),
                 wallet: 0,
                 contributing: [],
                 helping: [],

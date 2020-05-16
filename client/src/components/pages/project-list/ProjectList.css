@@ -1,8 +1,8 @@
-.coasters-list .card{   
+.project-list .card{   
     margin-bottom: 30px;
 }
 
-.coasters-list img {
+.projects-list img {
     height: 160px;
     object-fit: cover;
 }
