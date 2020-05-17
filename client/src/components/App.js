@@ -1,31 +1,31 @@
-import React, { Component } from "react";
-import axios from "axios";
+import React, { Component } from "react"
 
-import { Switch, Route, Redirect } from "react-router-dom";
 
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
+import { Switch, Route, Redirect } from "react-router-dom"
 
-import Navigation from "./ui/navbar/Navbar";
-import ProjectList from "./pages/project-list/ProjectList";
-import ProjectDetails from "./pages/project-details/ProjectDetails";
-import Signup from "./pages/signup/Signup";
-import Login from "./pages/login/Login";
-import Profile from "./pages/profile/Profile";
+import "bootstrap/dist/css/bootstrap.min.css"
+import "./App.css"
 
-import AuthService from "./../service/auth.service";
+import Navigation from "./ui/navbar/Navbar"
+import ProjectList from "./pages/project-list/ProjectList"
+import ProjectDetails from "./pages/project-details/ProjectDetails"
+import Signup from "./pages/signup/Signup"
+import Login from "./pages/login/Login"
+import Profile from "./pages/profile/Profile"
+
+import AuthService from "./../service/auth.service"
 
 class App extends Component {
   constructor() {
-    super();
-    this.state = { loggedInUser: null };
-    this.authService = new AuthService();
+    super()
+    this.state = { loggedInUser: null }
+    this.authService = new AuthService()
   }
 
   setTheUser = (userObj) =>
     this.setState({ loggedInUser: userObj }, () =>
       console.log("El estado de App ha cambiado:", this.state)
-    );
+    )
 
   fetchUser = () => {
     if (this.state.loggedInUser === null) {
@@ -34,10 +34,10 @@ class App extends Component {
         .then((response) => this.setTheUser(response.data))
         .catch(() => this.setTheUser(false));
     }
-  };
+  }
 
   render() {
-    this.fetchUser();
+    this.fetchUser()
 
     return (
       <>
@@ -84,7 +84,7 @@ class App extends Component {
           </Switch>
         </main>
       </>
-    );
+    )
   }
 }
 
