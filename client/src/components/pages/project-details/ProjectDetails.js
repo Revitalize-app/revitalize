@@ -46,7 +46,7 @@ class ProjectDetails extends Component {
                         </ul>
                     </Col>
                     <Col md={6}>
-                        <img src={this.state.photos[0]} alt="Project photos"></img>
+                        <img src={this.state.photos} alt="Project photos"></img>
                     </Col>
                 </Row>
                 <Link to="/projects" className="btn btn-dark">Back</Link>

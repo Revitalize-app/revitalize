@@ -29,7 +29,7 @@ class ProjectForm extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        this.projectService.saveProject(this.state)
+        this.projectService.createProject(this.state)
             .then(() => this.props.finishProjectPost())
             .catch(err => console.log(err))
     }
