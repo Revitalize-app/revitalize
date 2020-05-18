@@ -57,7 +57,7 @@ class App extends Component {
             />
             <Route
               path="/projects/:projectId"
-              render={(props) => <ProjectDetails {...props} />}
+              render={(props) => <ProjectDetails {...props} user={this.state.loggedInUser}/>}
             />
             <Route
               path="/signup"

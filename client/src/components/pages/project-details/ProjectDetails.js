@@ -13,28 +13,40 @@ class ProjectDetails extends Component {
 
     constructor(props) {
         super(props)
-        this.state = {}
+        this.state = null
         this.projectService = new ProjectService()
     }
 
 
     getProjectInfo() {
         const id = this.props.match.params.projectId
-     
         this.projectService.getProject(id)
             .then(response => this.setState(response.data))
             .catch(err => console.log(err))
     }
 
+    // 1. preparo info al back
+    // 2. llamada al service del back
+    //3. en el back: actualizar el proyecto.then( actualizar al user)
+    //4. return data o true
+    //5  setState con los cambios nuevos
+    // añado el dinero en el goal
+    // this.state.goal += this.hljs-value
+    // this.state.collabores += 1
 
     componentDidMount = () => {
         this.getProjectInfo()
+
     }
 
     render() {
-        return (
+
+       return(
+           <>
+           {!this.state ?
+           <h1>Cargando...</h1> :
             <Container as="section" className="project-details">
-            {console.log(this.state)}
+            {console.log(this.state.project)}
                 <Row>
                     <Col md={{ span: 4, offset: 1 }}>
                         
@@ -44,14 +56,18 @@ class ProjectDetails extends Component {
                     <br/>
                         <h4>Details</h4>
                         <ul>
-                            <li>Description: {this.state.description}</li>
+                            <li>Description: {this.state.description}</li> <br/>
                             <li>Goal: {this.state.currentAmount}€ / {this.state.goal}€</li>
+                            <li>Cleaners: {this.state.helpers.length} / {this.state.helpersNeeded}</li>
                         </ul>
                     </Col>
                 </Row>
                 <Link to="/projects" className="back">Back</Link>
             </Container>
-        )
+            }
+            </>
+            )
+        
     }
 }
 
