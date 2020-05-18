@@ -25,7 +25,7 @@ class ProjectDetails extends Component {
             .catch(err => console.log(err))
     }
 
-    // 1. preparo info al back
+    // 1. preparo info al back creando ruta y servicio para editar la informacion
     // 2. llamada al service del back
     //3. en el back: actualizar el proyecto.then( actualizar al user)
     //4. return data o true
@@ -41,10 +41,10 @@ class ProjectDetails extends Component {
 
     render() {
 
-       return(
-           <>
-           {!this.state ?
-           <h1>Cargando...</h1> :
+        return(
+        <>
+        {!this.state ?
+        <h1>Loading...</h1> :
             <Container as="section" className="project-details">
             {console.log(this.state.project)}
                 <Row>
@@ -54,7 +54,7 @@ class ProjectDetails extends Component {
                         <img src={this.state.photos} alt="Project photos"></img>
                     </Col>
                     <br/>
-                        <h4>Details</h4>
+                        
                         <ul>
                             <li>Description: {this.state.description}</li> <br/>
                             <li>Goal: {this.state.currentAmount}€ / {this.state.goal}€</li>

@@ -3,19 +3,22 @@ const router = express.Router();
 
 const User = require("../models/user.model");
 
-router.get("/getAllUsers", (req, res, next) => {
+const ensureLoggedIn = (req, res, next) => req.isAuthenticated() ? next() : res.redirect('/login')
+
+
+router.get("/getAllUsers", ensureLoggedIn, (req, res, next) => {
   User.find()
     .then((data) => res.json(data))
     .catch((err) => err);
 });
 
-router.get("/getOneUser/:id", (req, res, next) => {
+router.get("/getOneUser/:id", ensureLoggedIn,  (req, res, next) => {
   User.findById(req.params.id)
     .then((data) => res.json(data))
     .catch((err) => err);
 });
 
-router.post("/createUser", (req, res, next) => {
+router.post("/createUser",ensureLoggedIn,(req, res, next) => {
   User.create(req.body)
     .then((data) => res.json(data))
     .catch((err) => err);
