@@ -20,6 +20,7 @@ class ProjectDetails extends Component {
 
     getProjectInfo() {
         const id = this.props.match.params.projectId
+     
         this.projectService.getProject(id)
             .then(response => this.setState(response.data))
             .catch(err => console.log(err))
@@ -33,23 +34,22 @@ class ProjectDetails extends Component {
     render() {
         return (
             <Container as="section" className="project-details">
-                <h1>{this.state.title}</h1>
-                <hr />
+            {console.log(this.state)}
                 <Row>
                     <Col md={{ span: 4, offset: 1 }}>
-                        <h4>Info</h4>
-                        <p>{this.state.description}</p>
-                        <h4>Details</h4>
-                        <ul>
-                            <li>Description: {this.state.description}</li>
-                            <li>Goal ammount: {this.state.goal}</li>
-                        </ul>
-                    </Col>
+                        
                     <Col md={6}>
                         <img src={this.state.photos} alt="Project photos"></img>
                     </Col>
+                    <br/>
+                        <h4>Details</h4>
+                        <ul>
+                            <li>Description: {this.state.description}</li>
+                            <li>Goal: {this.state.currentAmount}€ / {this.state.goal}€</li>
+                        </ul>
+                    </Col>
                 </Row>
-                <Link to="/projects" className="btn btn-dark">Back</Link>
+                <Link to="/projects" className="back">Back</Link>
             </Container>
         )
     }

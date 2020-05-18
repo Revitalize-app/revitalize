@@ -12,12 +12,12 @@ const userSchema = new Schema({
         coordinates: [Number]
     },
     profileImg: String,
-    likes: Number,
     typeUser:{
         type: String,
         enum: ['person', 'enterprise']
     },
     wallet: Number,
+    moneySpent: Number,
     contributing: [{
         type: Schema.Types.ObjectId,
         ref: 'Project'

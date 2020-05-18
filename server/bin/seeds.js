@@ -36,9 +36,9 @@ Promise.all([deleteUsers, deleteProjects])
                     coordinates: [ faker.address.longitude(),faker.address.latitude()]
                 },
                 profileImg: faker.internet.avatar(),
-                likes: faker.random.number(),
                 typeUser: faker.random.arrayElement(['person', 'enterprise']),
-                wallet: 0,
+                wallet: 100,
+                moneySpent: faker.random.arrayElement([0,1,2,3,4,5,6,7,8,9,10,20,30,40]),
                 contributing: [],
                 helping: [],
                 ownProjects: [],
@@ -63,11 +63,12 @@ Promise.all([deleteUsers, deleteProjects])
                         coordinates: [ faker.address.longitude(), faker.address.latitude()]
                     },
                     photos: [faker.image.city()],
-                    goal: 10,
+                    goal: faker.random.arrayElement([10,20,30,40]),
                     currentAmount: 0,
+                    helpersNeeded: faker.random.arrayElement([1,2,3,4]),
                     projectType: faker.random.arrayElement(['restructuring', 'nature cleaning', 'beach cleaning', 'city cleaning']),
                     contributors: [allU[0]._id, allU[2]._id, allU[2]._id],
-                    helpers: [allU[3]._id, allU[4]._id, allU[5]._id]
+                    helpers: [allU[3]._id]
                 })
             
             promises.push(Project.create(projects)

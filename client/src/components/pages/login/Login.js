@@ -34,7 +34,7 @@ class Login extends Component {
     e.preventDefault();
     this.authService
       .login(this.state.loginInfo)
-      .then((response) => {
+      .then(response => {
         console.log("response: ", response);
         this.props.setTheUser(response.data);
         this.props.history.push("/");

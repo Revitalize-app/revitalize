@@ -1,3 +1,19 @@
 .project-details img {
     width: 100%
 }
+
+.project-details ul {
+    list-style: none;
+}
+
+.back {
+    padding: 2px 15px;
+    border: 1px solid #17BEBB;
+    border-radius: 3px;
+    transition: all .4s;
+}
+
+.back:hover {
+    background-color: #17BEBB;
+    color: whitesmoke;
+}

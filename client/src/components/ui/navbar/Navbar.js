@@ -23,7 +23,7 @@ class Navigation extends Component {
     render() {
 
         return (
-            <Navbar bg="dark" variant="dark" expand="md">
+            <Navbar  expand="md">
                 <Navbar.Brand as="div"><Link to="/">Revitalize the planet!</Link></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">

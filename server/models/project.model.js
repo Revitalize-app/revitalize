@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const projectSchema = new Schema({
     author: {
         type: Schema.Types.ObjectId,
-        ref: ' User'
+        ref: 'User'
     },
     description: String,
     likes: Number,
@@ -15,6 +15,7 @@ const projectSchema = new Schema({
     photos: [String],
     goal: Number,
     currentAmount: Number,
+    helpersNeeded: Number,
     projectType: {
         type: String,
         enum: ['restructuring', 'nature cleaning', 'beach cleaning', 'city cleaning']

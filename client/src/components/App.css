@@ -17,7 +17,17 @@ a, a:hover {
   text-decoration: none;
 }
 .navbar {
-  margin-bottom: 40px
+  margin-bottom: 40px;
+  background-color: #17BEBB;
+  
+}
+
+.navbar-toggler-icon{
+  stroke: whitesmoke;
+}
+
+.navbar a {
+  color: whitesmoke;
 }
 
 .toast {
