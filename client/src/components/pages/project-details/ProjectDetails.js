@@ -4,6 +4,7 @@ import ProjectService from '../../../service/projects.service'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/Button'
 
 import './ProjectDetails.css'
 
@@ -13,7 +14,10 @@ class ProjectDetails extends Component {
 
     constructor(props) {
         super(props)
-        this.state = null
+        this.state =  {
+            project:null,
+            modalShow: false
+        }
         this.projectService = new ProjectService()
     }
 
@@ -21,44 +25,38 @@ class ProjectDetails extends Component {
     getProjectInfo() {
         const id = this.props.match.params.projectId
         this.projectService.getProject(id)
-            .then(response => this.setState(response.data))
+            .then(response => this.setState({project: response.data}))
             .catch(err => console.log(err))
     }
 
-    // 1. preparo info al back creando ruta y servicio para editar la informacion
-    // 2. llamada al service del back
-    //3. en el back: actualizar el proyecto.then( actualizar al user)
-    //4. return data o true
-    //5  setState con los cambios nuevos
-    // añado el dinero en el goal
-    // this.state.goal += this.hljs-value
-    // this.state.collabores += 1
+
+
+
 
     componentDidMount = () => {
         this.getProjectInfo()
-
     }
 
     render() {
 
         return(
-        <>
-        {!this.state ?
-        <h1>Loading...</h1> :
+            <>
+            {!this.state.project ?
+            <h1>Loading...</h1> :
             <Container as="section" className="project-details">
-            {console.log(this.state.project)}
+
                 <Row>
                     <Col md={{ span: 4, offset: 1 }}>
                         
                     <Col md={6}>
-                        <img src={this.state.photos} alt="Project photos"></img>
+                        <img src={this.state.project.photos} alt="Project photos"></img>
                     </Col>
                     <br/>
                         
                         <ul>
-                            <li>Description: {this.state.description}</li> <br/>
-                            <li>Goal: {this.state.currentAmount}€ / {this.state.goal}€</li>
-                            <li>Cleaners: {this.state.helpers.length} / {this.state.helpersNeeded}</li>
+                            <li>Description: {this.state.project.description}</li> <br/> <hr/>
+                            <li>Goal: {this.state.project.currentAmount}€ / {this.state.project.goal}€ - <Button><small>Contribute</small></Button></li>
+                            <li>Cleaners: {this.state.project.helpers.length} / {this.state.project.helpersNeeded} - <Button><small>Help</small></Button></li>
                         </ul>
                     </Col>
                 </Row>

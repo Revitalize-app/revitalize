@@ -6,6 +6,12 @@
     list-style: none;
 }
 
+.project-details ul li {
+    margin-bottom: 10px;
+}
+
+
+
 .back {
     padding: 2px 15px;
     border: 1px solid #17BEBB;

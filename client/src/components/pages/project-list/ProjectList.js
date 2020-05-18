@@ -53,6 +53,8 @@ class ProjectList extends Component {
 
   render() {
     return (
+      <>
+      
       <Container as="section">
         <h1>Projects List</h1>
 
@@ -66,12 +68,15 @@ class ProjectList extends Component {
           </Button>
         )}
 
+        {!this.state.projects ? 
+        <h1>Loading...</h1> : 
         <Row className="projects-list">
           {this.state.projects.map((elm) => (
             <ProjectCard key={elm._id} {...elm} />
           ))}
         </Row>
 
+        }
         <Modal
           show={this.state.modalShow}
           onHide={() => this.handleModal(false)}
@@ -101,6 +106,7 @@ class ProjectList extends Component {
           <Toast.Body>{this.state.toast.text}</Toast.Body>
         </Toast>
       </Container>
+      </>
     )
   }
 }

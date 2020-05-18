@@ -40,3 +40,17 @@ a, a:hover {
   color: white;
   padding: 10px
 }
+
+.btn-primary {
+  color: black;
+  padding: 0 6px;
+  background-color: white;
+  border: 1px solid #17BEBB;
+  border-radius: 3px;
+  transition: all .4s;  
+}
+
+.btn-primary:hover {
+  background-color: #17BEBB;
+  border:1px solid #17BEBB;
+}
