@@ -16,6 +16,7 @@ const userSchema = new Schema({
         type: String,
         enum: ['person', 'enterprise']
     },
+    city: String,
     wallet: Number,
     moneySpent: Number,
     contributing: [{

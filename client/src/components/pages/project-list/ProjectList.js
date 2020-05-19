@@ -49,7 +49,7 @@ class ProjectList extends Component {
     this.getAllProjects()
     this.handleModal(false)
     this.handletoast(true, "Saved in the Data Base")
-  };
+  }
 
   render() {
     return (

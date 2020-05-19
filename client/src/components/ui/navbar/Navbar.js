@@ -49,6 +49,7 @@ class Navigation extends Component {
 
                     </Nav>
                     <Navbar.Text className="ml-auto"> Hello, {this.props.loggedInUser ? this.props.loggedInUser.username : 'invitad@'}</Navbar.Text>
+                    <Navbar.Text >{this.props.loggedInUser ? 'Wallet' + this.props.loggedInUser.wallet + '€' : '0'}</Navbar.Text>
                 </Navbar.Collapse>
 
             </Navbar>
