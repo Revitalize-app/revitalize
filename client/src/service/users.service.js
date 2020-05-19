@@ -10,6 +10,7 @@ export default class services {
     }
 
     getUsers = () => this.service.get('/getAllUsers')
-    getOneUser = (userID) => this.service.get('/getOneUser/:id')
+    getOneUser = (userID) => this.service.get(`/getOneUser/${userID}`)
+    updateUser = (userID) => this.service.post(`/updateUser/${userID}`)
     
 }

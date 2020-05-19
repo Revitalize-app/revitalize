@@ -31,6 +31,7 @@ Promise.all([deleteUsers, deleteProjects])
                 username: faker.internet.userName(),
                 email: faker.internet.email(),
                 password: bcrypt.hashSync('lala', salt),
+                city: faker.address.city(),
                 location: {
                     type: 'Point',
                     coordinates: [ faker.address.longitude(),faker.address.latitude()]
@@ -58,6 +59,7 @@ Promise.all([deleteUsers, deleteProjects])
                     author: user._id,
                     description: faker.lorem.sentences(3),
                     likes: faker.random.number(),
+                    city: faker.address.city(),
                     location: {
                         type: 'Point',
                         coordinates: [ faker.address.longitude(), faker.address.latitude()]

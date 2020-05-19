@@ -8,6 +8,7 @@ const projectSchema = new Schema({
     },
     description: String,
     likes: Number,
+    city: String,
     location: {
         type: {type: String},
         coordinates: [Number]
