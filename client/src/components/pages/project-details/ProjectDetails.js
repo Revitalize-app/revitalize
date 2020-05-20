@@ -77,7 +77,7 @@ class ProjectDetails extends Component {
                             <li>Cleaners: {this.state.project.helpers.length} / {this.state.project.helpersNeeded} - <Button><small>Help</small></Button></li>
                         </ul>
                     </Col>
-                    <Modal show={this.state.modalShow} onHide={() => this.handleModal(false)} >
+                    <Modal show={this.state.modalShow} className="contribution-modal" onHide={() => this.handleModal(false)} >
                         <Modal.Body>
                             <ContributeForm
                             project={this.state.project}
@@ -87,7 +87,7 @@ class ProjectDetails extends Component {
                             />
                     </Modal.Body>
         </Modal>
-        <Toast onClose={() => this.handletoast(false)} show={this.state.toast.show} delay={3000} autohide >
+        <Toast className="contribution-toast" onClose={() => this.handletoast(false)} show={this.state.toast.show} delay={3000} autohide >
             <Toast.Header>
 
             <img src="holder.js/20x20?text=%20" className="rounded mr-2" alt="" />

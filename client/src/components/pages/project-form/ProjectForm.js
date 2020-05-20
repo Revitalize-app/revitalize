@@ -50,8 +50,8 @@ class ProjectForm extends Component {
                         <Form.Control name="inversions" type="text" value={this.state.inversions} onChange={this.handleInputChange} />
                     </Form.Group>
 
-                    <Button  onClick={() => this.props.closeModal()} style={{ marginRight: '10px' }}>Close</Button>
                     <Button type="submit">Create</Button>
+                    <Button  onClick={() => this.props.closeModal()} style={{ marginRight: '10px' }}>Close</Button>
                 </Form>
             </Container>
         )

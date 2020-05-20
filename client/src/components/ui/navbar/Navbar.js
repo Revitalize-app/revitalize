@@ -30,7 +30,6 @@ class Navigation extends Component {
                     <Nav>
                         <Nav.Link as="div"><Link to="/">Home</Link></Nav.Link>
                         <Nav.Link as="div"><Link to="/projects">Discover projects</Link></Nav.Link>
-                        <Nav.Link as="div"><Link to="/ranking">Ranking</Link></Nav.Link>
 
                         {
                             !this.props.loggedInUser ?
