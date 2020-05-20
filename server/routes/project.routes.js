@@ -38,8 +38,8 @@ router.post('/updateProject' , ensureLoggedIn, (req, res, next) => {
         {
         wallet: modifiedWallet,
         moneySpent: modifiedMoneySpent,
-       $push: {contributing: project},
-    }, {new: true})
+        $push: {contributing: project},
+    }, {new: true}) 
 
     Promise.all([updateProject, updateUser])
         .then(data => {
