@@ -33,9 +33,9 @@ class contributeForm extends Component {
         // }else{
             let amount = this.state.amount
             let contribution = {
-                modifiedAmount:this.props.project.currentAmount += amount,
-                modifiedWallet:this.props.creator.wallet -= amount,
-                modifiedMoneySpent:this.props.creator.moneySpent += amount,
+                modifiedAmount:this.props.project.currentAmount += Number(amount),
+                modifiedWallet:this.props.creator.wallet -= Number(amount),
+                modifiedMoneySpent:this.props.creator.moneySpent += Number(amount),
                 project: this.props.project._id,
                 creator: this.props.creator._id
             }
@@ -57,8 +57,8 @@ class contributeForm extends Component {
                         <Form.Control name="amount" type="text" value={this.state.amount} onChange={this.handleInputChange} />
                     </Form.Group>
 
+                    <Button  type="submit">Complete</Button>
                     <Button  onClick={() => this.props.closeModal()} style={{ marginRight: '10px' }}>Close</Button>
-                    <Button  type="submit">Pay</Button>
                 </Form>
             </Container>
         )

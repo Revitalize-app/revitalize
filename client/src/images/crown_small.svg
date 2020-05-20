@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="14px" viewBox="0 0 16 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>crown</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Home/content&gt;min.marg.16px" transform="translate(-278.000000, -449.000000)" fill="#1FB36F" fill-rule="nonzero">
+            <g id="Div.TopRank" transform="translate(16.000000, 380.000000)">
+                <g id="RightPic" transform="translate(212.000000, 69.000000)">
+                    <g id="crown" transform="translate(50.000000, 0.000000)">
+                        <circle id="Oval" cx="8" cy="0.5" r="1"></circle>
+                        <circle id="Oval" cx="15.5" cy="4.5" r="1"></circle>
+                        <circle id="Oval" cx="0.5" cy="4.5" r="1"></circle>
+                        <path d="M1.84767579,11.5 L14.1538376,11.5 L15.483197,5.85489025 C15.566282,5.5084721 15.333005,5.16506627 14.9655138,5.08674565 C14.783366,5.04758533 14.594827,5.08072098 14.4382438,5.18012793 L10.9902177,7.34599448 L8.60951383,2.8546078 C8.44014832,2.53831296 8.03111464,2.4087827 7.6955792,2.56843628 C7.5645606,2.63169525 7.45591103,2.7311022 7.39199952,2.8546078 L5.01129567,7.34599448 L1.56007398,5.18012793 C1.24690757,4.98432637 0.825091585,5.06264699 0.614183593,5.35785551 C0.511925173,5.50244743 0.476773841,5.68318734 0.515120749,5.85489025 L1.84767579,11.5 Z" id="Path"></path>
+                        <path d="M2,12 L2,13.334375 C2,13.703125 2.30007815,14 2.66579838,14 L13.3342016,14 C13.7030477,14 14,13.7 14,13.334375 L14,12 L2,12 Z" id="Path"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

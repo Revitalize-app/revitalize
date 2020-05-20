@@ -43,11 +43,12 @@ a, a:hover {
 
 .btn-primary {
   color: black;
-  padding: 0 6px;
+  padding: 10px 15px;
   background-color: white;
   border: 1px solid #17BEBB;
-  border-radius: 3px;
+  border-radius: 30px;
   transition: all .4s;  
+  margin-left: 4px;
 }
 
 .btn-primary:hover {

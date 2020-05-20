@@ -77,7 +77,7 @@ class ProjectList extends Component {
         </Row>
 
         }
-        <Modal
+        <Modal className='create-modal'
           show={this.state.modalShow}
           onHide={() => this.handleModal(false)}
         >

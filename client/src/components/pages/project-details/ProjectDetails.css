@@ -13,13 +13,21 @@
 
 
 .back {
-    padding: 2px 15px;
+    padding: 10px 15px;
     border: 1px solid #17BEBB;
-    border-radius: 3px;
+    border-radius: 30px;
     transition: all .4s;
 }
 
 .back:hover {
     background-color: #17BEBB;
     color: whitesmoke;
+}
+
+.contribution-modal {
+    margin-top: 40vh;
+}
+
+.contribution-toast {
+    margin-bottom: 30vh;
 }

@@ -8,15 +8,17 @@ const ensureLoggedIn = (req, res, next) => req.isAuthenticated() ? next() : res.
 
 router.get("/getAllUsers", ensureLoggedIn, (req, res, next) => {
   User.find()
+    .populate('ownProjects')
     .then((data) => res.json(data))
     .catch((err) => err)
-});
+})
 
 router.get("/getOneUser/:id", ensureLoggedIn,  (req, res, next) => {
   User.findById(req.params.id)
+    .populate('ownProjects')
     .then((data) => res.json(data))
     .catch((err) => err)
-});
+})
 
 router.post("/createUser",ensureLoggedIn,(req, res, next) => {
   User.create(req.body)

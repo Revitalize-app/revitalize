@@ -6,3 +6,7 @@
     height: 160px;
     object-fit: cover;
 }
+
+.create-modal {
+    margin-top: 10vh;
+}

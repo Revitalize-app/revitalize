@@ -8,6 +8,7 @@ const ensureLoggedIn = (req, res, next) => req.isAuthenticated() ? next() : res.
 
 router.get('/getAllProjects', (req, res, next) =>{
     Project.find()
+    .populate('author')
     .then(data => res.json(data))
     .catch(err => next(err))
 })
