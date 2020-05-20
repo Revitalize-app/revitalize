@@ -51,13 +51,13 @@ class App extends Component {
             <Route
               path="/projects"
               exact
-              render={() => (
+              render={(props) => (
                 <ProjectList loggedInUser={this.state.loggedInUser} />
               )}
             />
             <Route
               path="/projects/:projectId"
-              render={(props) => <ProjectDetails {...props} user={this.state.loggedInUser}/>}
+              render={(props) => <ProjectDetails setTheUser={this.setTheUser} {...props} user={this.state.loggedInUser}/>}
             />
             <Route
               path="/signup"

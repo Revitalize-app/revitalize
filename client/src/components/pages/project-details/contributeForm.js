@@ -42,6 +42,8 @@ class contributeForm extends Component {
             console.log("En el submit --->")
             console.log(contribution)
             this.projectService.updateProject(contribution)
+                //.then(response => console.log(response.data))
+                .then(response => this.props.setTheUser(response.data[1]))
                 .then(() => this.props.finishProjectPost())
                 .catch(err => console.log(err))
         //}

@@ -72,14 +72,16 @@ class ProjectDetails extends Component {
                     <br/>
                         
                         <ul>
-                            <li>Description: {this.state.project.description}</li> <br/> <hr/>
+                            <li>Description: {this.state.project.description}</li> <br/>
+                            <li><strong>Author: {this.state.project.author.username}</strong></li>
+                             <hr/>
                             <li>Goal: {this.state.project.currentAmount}€ / {this.state.project.goal}€ - <Button onClick={() => this.handleModal(true)}><small>Contribute</small></Button></li>
                             <li>Cleaners: {this.state.project.helpers.length} / {this.state.project.helpersNeeded} - <Button><small>Help</small></Button></li>
                         </ul>
                     </Col>
                     <Modal show={this.state.modalShow} className="contribution-modal" onHide={() => this.handleModal(false)} >
                         <Modal.Body>
-                            <ContributeForm
+                            <ContributeForm setTheUser = {this.props.setTheUser}
                             project={this.state.project}
                             creator={this.props.user}
                             finishProjectPost={this.finishProjectPost}

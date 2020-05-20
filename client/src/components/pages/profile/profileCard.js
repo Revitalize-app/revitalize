@@ -9,10 +9,10 @@ import Card from 'react-bootstrap/Card'
 const ProfileCard = props => {
 
     return (
-        <Col xs={6} >
+        <Col xs={5} >
         <Link to={`/projects/${props._id}`}>
             <Card as="article" className="profile-card">
-                <Card.Img variant="top" src={props.photos[0]} />
+                <Card.Img variant="top" src={props.photos} />
                 <Card.Body>
                     
                     <p>{props.city}</p>

@@ -1,7 +1,12 @@
 .project-list .card{   
     margin-bottom: 30px;
+    
 }
 
+.project-list-card{
+    border: none;
+    margin: 40px 0;
+}
 .projects-list img {
     height: 160px;
     object-fit: cover;

@@ -40,7 +40,7 @@ import './profile.css'
         render() {
             return (
                 <>
-
+                <Container className="main-container">
                     <Container as="section" className="profile-header">
 
                         <Row as="header">
@@ -79,14 +79,14 @@ import './profile.css'
                     </Row>
                     
                     <Row className="profile-button">
-                        <Col xs={{span:6, offset:3}} >
+                        <Col xs={{span:12, offset:2}} >
 
                         <Link to={`/projects`} className="btn-primary"> Discover new projects </Link>
 
                         </Col>
                     </Row>
                     </Container>
-
+                    </Container>
 
                 </>
             )

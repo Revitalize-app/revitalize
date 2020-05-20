@@ -6,6 +6,10 @@
     background-size: cover; */
 }
 
+.main-container{
+    overflow: hidden;
+}
+
 .profile-header img {
     width: 120px;
     border-radius: 50%;
@@ -21,6 +25,10 @@
 .profile-card {
     border: none;
     margin: 10px -12px;
+}
+
+.profile-card p {
+    font-size: .8em;
 }
 
 .profile-button {

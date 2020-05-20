@@ -13,8 +13,8 @@ import Toast from "react-bootstrap/Toast"
 import Modal from "react-bootstrap/Modal"
 
 class ProjectList extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       modalShow: false,
       toast: {
@@ -52,6 +52,7 @@ class ProjectList extends Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <>
       
@@ -61,7 +62,7 @@ class ProjectList extends Component {
         {this.props.loggedInUser && (
           <Button
             onClick={() => this.handleModal(true)}
-            variant="dark"
+            className="btn-primary"
             style={{ marginBottom: "20px" }}
           >
             Create new project
