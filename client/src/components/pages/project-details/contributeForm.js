@@ -11,7 +11,7 @@ class contributeForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            amount: 0,
+            amount: 1,
             
         }
         this.projectService = new ProjectService()
