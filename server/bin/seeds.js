@@ -59,10 +59,9 @@ Promise.all([deleteUsers, deleteProjects])
                     author: user._id,
                     description: faker.lorem.sentences(3),
                     likes: faker.random.number(),
-                    city: faker.address.city(),
-                    location: {
-                        type: 'Point',
-                        coordinates: [ faker.address.longitude(), faker.address.latitude()]
+                    loc: {
+                        city: faker.address.city(),
+                        coordinates: [ faker.address.latitude(), faker.address.longitude()]
                     },
                     photos: faker.image.city(),
                     goal: faker.random.arrayElement([10,20,30,40]),

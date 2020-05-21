@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ProjectService from '../../../service/projects.service'
 import FileService from './../../../service/file.service'
-
+import GmapsPlaces from './../../maps/GmapsPlaces/GmapsPlaces'
 import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
@@ -17,7 +17,11 @@ class ProjectForm extends Component {
             projectType:'',
             description: '',
             photos: '',
-            author: this.props.creator
+            author: this.props.creator,
+            loc: {
+                city: '',
+                coordinates: []
+            }
 
             
         }
@@ -34,6 +38,13 @@ class ProjectForm extends Component {
                 this.setState({photos: response.data.secure_url })
             })
             .catch(err => console.log(err))
+    }
+
+    getData = (data) =>{
+        this.setState({
+            ...this.state,
+            loc: {city: data.city, coordinates: [data.coordinates.lat, data.coordinates.lng]}
+        })
     }
 
     handleInputChange = e => {
@@ -59,6 +70,11 @@ class ProjectForm extends Component {
                 <h3>Create new project</h3>
                 <hr></hr>
                 <Form onSubmit={this.handleSubmit}>
+                    <Form.Group controlId="photos">
+                        <Form.Label>Photo</Form.Label>
+                        <Form.Control name="photos" type="file" onChange={this.handleFileUpload} />
+                    </Form.Group>
+
                     <Form.Group controlId="goal">
                         <Form.Label>Goal</Form.Label>
                         <Form.Control name="goal" type="number" value={this.state.goal} onChange={this.handleInputChange} />
@@ -67,6 +83,11 @@ class ProjectForm extends Component {
                     <Form.Group controlId="helpersNeeded">
                         <Form.Label>How many helpers do you need?</Form.Label>
                         <Form.Control name="helpersNeeded" type="number" value={this.state.helpersNeeded} onChange={this.handleInputChange} />
+                    </Form.Group>
+
+                    <Form.Group controlId="loc">
+                        <Form.Label>Address</Form.Label>
+                        <GmapsPlaces getData = {(data => this.getData(data))}></GmapsPlaces>
                     </Form.Group>
 
 
@@ -85,10 +106,7 @@ class ProjectForm extends Component {
                         <Form.Control name="description" as="textarea" rows="2" type="text" value={this.state.description} onChange={this.handleInputChange} />
                     </Form.Group>
 
-                    <Form.Group controlId="photos">
-                        <Form.Label>Photo</Form.Label>
-                        <Form.Control name="photos" type="file" onChange={this.handleFileUpload} />
-                    </Form.Group>
+
 
                     <Button type="submit">Create</Button>
                     <Button  onClick={() => this.props.closeModal()} style={{ marginRight: '10px' }}>Close</Button>

@@ -24,7 +24,7 @@ router.get('/getOneProject/:id', (req, res, next) => {
 
 router.post('/postProject',ensureLoggedIn, (req, res, next) => {
     console.log(req.body)
-    let project;
+    let project
     Project.create(req.body)
     .then(data => {
         project = data
@@ -86,9 +86,7 @@ router.post('/updateProject' , ensureLoggedIn, (req, res, next) => {
         }
     })
     .catch(err => console.log(err))
-  
 
-   
 })
 
 

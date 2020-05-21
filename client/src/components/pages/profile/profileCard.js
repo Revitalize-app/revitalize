@@ -15,7 +15,7 @@ const ProfileCard = props => {
                 <Card.Img variant="top" src={props.photos} />
                 <Card.Body>
                     
-                    <p>{props.city}</p>
+                    <p>{props.loc.city}</p>
                 </Card.Body>
             </Card>
         </Link>

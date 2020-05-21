@@ -56,3 +56,15 @@ a, a:hover {
   background-color: #17BEBB;
   border:1px solid #17BEBB;
 }
+
+.marker {
+  width: 20px;
+ 
+}
+
+.marker img {
+  display: block;
+  object-fit: contain;
+  width: 100%;
+  stroke: green;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ProjectService from '../../../service/projects.service'
+import GmapMap from './../../maps/gMapsMap/map'
 
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -82,7 +83,7 @@ class ProjectDetails extends Component {
                             <li><strong>Author: {this.state.project.author.username}</strong></li>
                             <hr/>
                             <li>Goal: {this.state.project.currentAmount}€ / {this.state.project.goal}€ - {this.props.user && <Button onClick={() => this.handleModal(true)}><small>Contribute</small></Button>} </li>
-                            <li>Cleaners: {this.state.project.helpers.length} / {this.state.project.helpersNeeded} - <Button onClick={()=>this.addHelper()}><small>Help</small></Button></li>
+                            <li>Cleaners: {this.state.project.helpers.length} / {this.state.project.helpersNeeded} - {this.props.user && <Button onClick={()=>this.addHelper()}><small>Help</small></Button> }</li>
                         </ul>
                     </Col>
                     <Modal show={this.state.modalShow} className="contribution-modal" onHide={() => this.handleModal(false)} >
@@ -106,6 +107,7 @@ class ProjectDetails extends Component {
             <Toast.Body>{this.state.toast.text}</Toast.Body>
         </Toast>
                 </Row>
+                <GmapMap pos={this.state.project.loc.coordinates} marker={true} />
             </Container>
             }
             </>

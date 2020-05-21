@@ -10,11 +10,11 @@ const projectSchema = new Schema({
         type:String,
         required: true},
     likes: Number,
-    city: {
-        type:String, 
-        default: 'Almeria'},
-    location: {
-        type: {type: String},
+    
+    loc: {
+        city: {
+            type:String, 
+            default: 'Almeria'},
         coordinates: [Number]
     },
     photos: {
@@ -47,7 +47,6 @@ const projectSchema = new Schema({
     timestamps: true
 })
 
-projectSchema.index({ location: '2dsphere'})
 
 const Project = mongoose.model('Project', projectSchema)
 module.exports = Project

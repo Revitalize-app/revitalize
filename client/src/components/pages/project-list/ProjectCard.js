@@ -15,7 +15,7 @@ const ProjectCard = props => {
                 <Card.Body>
                     <Card.Title>{props.description}</Card.Title>
                     <small>#{props.projectType}</small>
-                    <p>{props.city}</p>
+                    <p>{props.loc.city}</p>
                     <Link to={`/projects/${props._id}`} className="btn-primary  btn-block">see more details</Link>
                 </Card.Body>
             </Card>
