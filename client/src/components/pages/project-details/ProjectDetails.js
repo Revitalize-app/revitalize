@@ -43,6 +43,12 @@ class ProjectDetails extends Component {
     this.setState({ toast: toastCopy })
     }
 
+    addHelper = () => {
+        console.log(this.state.project._id, this.props.user._id)
+        this.projectService.addHelper({project: this.state.project._id, helper: this.props.user._id})
+        .then(response => this.finishProjectPost())
+        .catch(err => console.log(err))
+    }
 
     finishProjectPost = () => {
     this.getProjectInfo()
@@ -76,7 +82,7 @@ class ProjectDetails extends Component {
                             <li><strong>Author: {this.state.project.author.username}</strong></li>
                             <hr/>
                             <li>Goal: {this.state.project.currentAmount}€ / {this.state.project.goal}€ - {this.props.user && <Button onClick={() => this.handleModal(true)}><small>Contribute</small></Button>} </li>
-                            <li>Cleaners: {this.state.project.helpers.length} / {this.state.project.helpersNeeded} - <Button><small>Help</small></Button></li>
+                            <li>Cleaners: {this.state.project.helpers.length} / {this.state.project.helpersNeeded} - <Button onClick={()=>this.addHelper()}><small>Help</small></Button></li>
                         </ul>
                     </Col>
                     <Modal show={this.state.modalShow} className="contribution-modal" onHide={() => this.handleModal(false)} >

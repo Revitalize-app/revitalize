@@ -11,7 +11,7 @@ const ProjectCard = props => {
     return (
         <Col lg={3} md={6}>
             <Card as="article" className="project-list-card">
-                <Card.Img variant="top" src={props.photos[0]} />
+                <Card.Img variant="top" src={props.photos} />
                 <Card.Body>
                     <Card.Title>{props.description}</Card.Title>
                     <small>#{props.projectType}</small>

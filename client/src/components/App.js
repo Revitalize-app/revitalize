@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 
 
-import { Switch, Route, Redirect } from "react-router-dom"
+import { Switch, Route } from "react-router-dom"
 
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./App.css"
@@ -28,15 +28,17 @@ class App extends Component {
     )
 
   fetchUser = () => {
+    
       this.authService
-        .isLoggedIn()
-        .then((response) => this.setTheUser(response.data))
-        .catch(() => this.setTheUser(false));
+      .isLoggedIn()
+      .then((response) => this.setTheUser(response.data))
+      .catch(() => this.setTheUser(false))
+    
     
   }
 
   componentDidMount(){
-    this.state.user === null &&  this.fetchUser()
+    !this.state.loggedInUser && this.fetchUser()
   }
 
   render() {
@@ -55,7 +57,7 @@ class App extends Component {
               path="/projects"
               exact
               render={(props) => (
-                <ProjectList loggedInUser={this.state.loggedInUser} />
+                <ProjectList loggedInUser={this.state.loggedInUser} fetchUser={this.fetchUser}/>
               )}
             />
             <Route
@@ -76,11 +78,11 @@ class App extends Component {
             />
             <Route
               path="/profile"
-              render={() =>
+              render={(props) =>
                 this.state.loggedInUser ? (
                   <Profile  loggedInUser={this.state.loggedInUser} />
                 ) : (
-                  <Redirect to="/" />
+                  <Login {...props} setTheUser={this.setTheUser} />
                 )
               }
             />

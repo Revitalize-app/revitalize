@@ -46,7 +46,7 @@ class contributeForm extends Component {
                 .then(response => this.props.setTheUser(response.data[1]))
                 .then(() => this.props.finishProjectPost())
                 .catch(err => console.log(err))
-         //}
+        //} 
     }
 
     render() {

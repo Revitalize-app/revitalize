@@ -26,7 +26,7 @@ const deleteProjects = Project.deleteMany()
 Promise.all([deleteUsers, deleteProjects])
     .then(() => {
         let users = []
-        for (let i = 1; i <= 100; i++) {
+        for (let i = 1; i <= 10; i++) {
             let user = {
                 username: faker.internet.userName(),
                 email: faker.internet.email(),
@@ -64,7 +64,7 @@ Promise.all([deleteUsers, deleteProjects])
                         type: 'Point',
                         coordinates: [ faker.address.longitude(), faker.address.latitude()]
                     },
-                    photos: [faker.image.city()],
+                    photos: faker.image.city(),
                     goal: faker.random.arrayElement([10,20,30,40]),
                     currentAmount: 0,
                     helpersNeeded: faker.random.arrayElement([1,2,3,4]),

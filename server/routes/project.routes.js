@@ -22,10 +22,27 @@ router.get('/getOneProject/:id', (req, res, next) => {
     .catch(err =>  next(err))
 })
 
-router.post('/createProject',ensureLoggedIn, (req, res, next) => {
+router.post('/postProject',ensureLoggedIn, (req, res, next) => {
+    console.log(req.body)
+    let project;
     Project.create(req.body)
-    .then(data => res.json(data))
+    .then(data => {
+        project = data
+        return User.findByIdAndUpdate(data.author, {$push:{ownProjects: data._id}},{new:true})
+    })
+    .then(() => res.status(200).json(project))
     .catch(err => next(err))
+})
+
+router.post('/addHelper' , ensureLoggedIn, (req,res,next) => {
+    let updatedProject
+    Project.findByIdAndUpdate(req.body.project, {$push: {helpers: req.body.helper}},{new: true})
+    .then(theProject => {
+        updatedProject = theProject
+        return User.findByIdAndUpdate(req.body.helper, {$push: {helping: theProject._id}},{new: true})
+    })
+    .then(()=> res.status(200).json(updatedProject))
+    .catch(err => console.log(err))
 })
 
 router.post('/updateProject' , ensureLoggedIn, (req, res, next) => {

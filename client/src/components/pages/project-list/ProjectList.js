@@ -21,7 +21,7 @@ class ProjectList extends Component {
         show: false,
         text: "",
       },
-      projects: [],
+      projects: null,
     }
     this.projectService = new ProjectService()
   }
@@ -46,6 +46,7 @@ class ProjectList extends Component {
   }
 
   finishProjectPost = () => {
+    this.props.fetchUser()
     this.getAllProjects()
     this.handleModal(false)
     this.handletoast(true, "Saved in the Data Base")
@@ -83,6 +84,7 @@ class ProjectList extends Component {
         >
           <Modal.Body>
             <ProjectForm
+            creator={this.props.loggedInUser?._id}
               finishProjectPost={this.finishProjectPost}
               closeModal={() => this.handleModal(false)}
             />

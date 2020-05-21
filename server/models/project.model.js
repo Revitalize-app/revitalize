@@ -11,15 +11,16 @@ const projectSchema = new Schema({
         required: true},
     likes: Number,
     city: {
-        type:String,
+        type:String, 
         default: 'Almeria'},
     location: {
         type: {type: String},
         coordinates: [Number]
     },
     photos: {
-        type: [String],
-        required: true},
+        type: String,
+        default:'https://www.adorama.com/alc/wp-content/uploads/2019/07/nathan-lee-allen-landscape-feature.jpg'
+        },
     goal: {
         type: Number,
         required: true},
@@ -30,7 +31,7 @@ const projectSchema = new Schema({
     projectType: {
         type: String,
         enum: ['restructuring', 'nature cleaning', 'beach cleaning', 'city cleaning'],
-        required: true
+        required: false
     },
     contributors: [{
         type: Schema.Types.ObjectId,

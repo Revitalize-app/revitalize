@@ -12,4 +12,5 @@ export default class services {
     getProject = (projectId) => this.service.get(`/getOneProject/${projectId}`)
     createProject = (theProject) => this.service.post(`/postProject`, theProject)
     updateProject = (contribution) => this.service.post(`/updateProject/`, contribution) 
+    addHelper = (info) => this.service.post('/addHelper', info)
 }

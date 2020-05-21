@@ -18,6 +18,13 @@ router.post('/uploadProfileImg', uploader.single("profileImg"), (req, res, next)
     }
     res.json({ secure_url: req.file.secure_url });
 })
+router.post('/uploadPhotos', uploader.single("photos"), (req, res, next) => {
+    if (!req.file) {
+        next(new Error('No file uploaded!'));
+        return;
+    }
+    res.json({ secure_url: req.file.secure_url });
+})
 
 
 
