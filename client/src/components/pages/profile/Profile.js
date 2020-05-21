@@ -21,20 +21,21 @@ import './profile.css'
         }
 
         getNewSets = () => {
-
-            const contributingProj = this.props.loggedInUser.contributing
-            const uniqueID = Array.from(new Set(contributingProj.map(elm => elm._id)))
-                            .map(id => {
-                                return contributingProj.find(elm => elm._id === id)
-                    })
+            const uniqueID = []
+            const contributingProj = this.props.loggedInUser.contributing 
+            contributingProj.forEach(project => !uniqueID.includes(project) && uniqueID.push(project) )
+            // const uniqueID = Array.from(new Set(contributingProj.map(elm => elm._id)))
+            //                 .map(id => {
+            //                     return contributingProj.find(elm => elm._id === id)
+            //         })
+            console.log(uniqueID)
             return this.setState({contributingProj: uniqueID})
-            
-
+        
         }
 
         componentDidMount = () => {
-        this.getNewSets()
-    }
+       // this.getNewSets()
+        }
 
 
         render() {
@@ -59,22 +60,22 @@ import './profile.css'
 
                         <h5>Own projects</h5>
                     <Row as='article' className="projects-profile">
-                        {this.props.loggedInUser.ownProjects.map((elm) => (
-                    <ProfileCard key={elm._id} {...elm} />
+                        {this.props.loggedInUser.ownProjects.map((elm, idx) => (
+                    <ProfileCard key={idx} {...elm} />
                         ))}
                     </Row>
 
                     <h5>Contributing</h5>
                     <Row as='article' className="projects-profile flex-row flex-nowrap">
-                        {this.state.contributingProj.map((elm) => (
-                    <ProfileCard  key={elm._id} {...elm} />
+                        {this.props.loggedInUser.contributing.map((elm, idx) => (
+                    <ProfileCard  key={idx} {...elm} />
                         ))}
                     </Row>
 
                     <h5>Helping</h5>
                     <Row as='article' className="projects-profile">
-                        {this.props.loggedInUser.helping.map((elm) => (
-                    <ProfileCard key={elm._id} {...elm} />
+                        {this.props.loggedInUser.helping.map((elm , idx) => (
+                    <ProfileCard key={idx} {...elm} />
                         ))}
                     </Row>
                     

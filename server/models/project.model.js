@@ -6,20 +6,31 @@ const projectSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
-    description: String,
+    description: {
+        type:String,
+        required: true},
     likes: Number,
-    city: String,
+    city: {
+        type:String,
+        default: 'Almeria'},
     location: {
         type: {type: String},
         coordinates: [Number]
     },
-    photos: [String],
-    goal: Number,
+    photos: {
+        type: [String],
+        required: true},
+    goal: {
+        type: Number,
+        required: true},
     currentAmount: Number,
-    helpersNeeded: Number,
+    helpersNeeded: {
+        type: Number,
+        required: true},
     projectType: {
         type: String,
-        enum: ['restructuring', 'nature cleaning', 'beach cleaning', 'city cleaning']
+        enum: ['restructuring', 'nature cleaning', 'beach cleaning', 'city cleaning'],
+        required: true
     },
     contributors: [{
         type: Schema.Types.ObjectId,

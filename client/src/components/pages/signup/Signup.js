@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import AuthService from './../../../service/auth.service'
-
+import FileService from './../../../service/file.service'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -17,11 +17,30 @@ class Signup extends Component {
         this.state = {
             loginInfo: {
                 username: '',
-                password: ''
+                password: '',
+                email: '',
+                profileImg: '',
             },
             errorMessage: ''
         }
         this.authService = new AuthService()
+        this.fileService = new FileService()
+    }
+
+    handleFileUpload = e => {
+        const uploadData = new FormData()
+        uploadData.append('profileImg', e.target.files[0])
+        this.fileService.handleUploadProfilePic(uploadData)
+            .then(response => {
+                console.log('El archivo ya se ha subido. La URL de cloudinary es: ', response.data.secure_url)
+                let loginInfoCopy = { ...this.state.loginInfo }
+                loginInfoCopy = { ...loginInfoCopy, profileImg: response.data.secure_url }
+                console.log(loginInfoCopy)
+                this.setState({
+                    loginInfo: loginInfoCopy
+                })
+            })
+            .catch(err => console.log(err))
     }
 
 
@@ -65,10 +84,20 @@ class Signup extends Component {
                                 <Form.Control name="username" type="text" value={this.state.username} onChange={this.handleInputChange} />
                             </Form.Group>
 
+                            <Form.Group controlId="email">
+                                <Form.Label>Email</Form.Label>
+                                <Form.Control name="email" type="email" value={this.state.email} onChange={this.handleInputChange} />
+                            </Form.Group>
+
                             <Form.Group controlId="pwd">
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control name="password" type="password" value={this.state.password} onChange={this.handleInputChange} />
                             </Form.Group>
+
+                            <Form.Group controlId="profileImg">
+                                    <Form.Label>Choose your profile pic</Form.Label>
+                                    <Form.Control name="profileImg" type="file" onChange={this.handleFileUpload} />
+                                </Form.Group>
 
                             <p
                                 className='error-message'

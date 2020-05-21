@@ -2,22 +2,32 @@ const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
 const userSchema = new Schema({
-    username: String,
-    email: String,
-    password: String,
+    username: {
+        type:String,
+        required: true},
+    email: {
+        type:String,
+        required: true},
+    password: {
+        type:String,
+        required: true},
     location: { 
         type: { 
             type: String 
         }, 
         coordinates: [Number]
     },
-    profileImg: String,
+    profileImg: {
+        type:String,
+        default: 'https://thumbs.dreamstime.com/b/default-avatar-profile-icon-social-media-user-vector-default-avatar-profile-icon-social-media-user-vector-portrait-176194876.jpg'},
     typeUser:{
         type: String,
         enum: ['person', 'enterprise']
     },
     city: String,
-    wallet: Number,
+    wallet: {
+        type: Number,
+        default: 100},
     moneySpent: Number,
     contributing: [{
         type: Schema.Types.ObjectId,

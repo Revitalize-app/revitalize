@@ -11,7 +11,6 @@ import ContributeForm from './contributeForm'
 
 import './ProjectDetails.css'
 
-import { Link } from 'react-router-dom'
 
 class ProjectDetails extends Component {
 
@@ -49,6 +48,7 @@ class ProjectDetails extends Component {
     this.getProjectInfo()
     this.handleModal(false)
     this.handletoast(true, "Your contribution changes the world in better")
+    this.props.fetchUser()
     }
 
     componentDidMount = () => {
@@ -74,8 +74,8 @@ class ProjectDetails extends Component {
                         <ul>
                             <li>Description: {this.state.project.description}</li> <br/>
                             <li><strong>Author: {this.state.project.author.username}</strong></li>
-                             <hr/>
-                            <li>Goal: {this.state.project.currentAmount}€ / {this.state.project.goal}€ - <Button onClick={() => this.handleModal(true)}><small>Contribute</small></Button></li>
+                            <hr/>
+                            <li>Goal: {this.state.project.currentAmount}€ / {this.state.project.goal}€ - {this.props.user && <Button onClick={() => this.handleModal(true)}><small>Contribute</small></Button>} </li>
                             <li>Cleaners: {this.state.project.helpers.length} / {this.state.project.helpersNeeded} - <Button><small>Help</small></Button></li>
                         </ul>
                     </Col>
@@ -100,7 +100,6 @@ class ProjectDetails extends Component {
             <Toast.Body>{this.state.toast.text}</Toast.Body>
         </Toast>
                 </Row>
-                <Link to="/projects" className="back">Back</Link>
             </Container>
             }
             </>

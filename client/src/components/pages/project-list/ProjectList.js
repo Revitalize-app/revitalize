@@ -52,7 +52,6 @@ class ProjectList extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <>
       

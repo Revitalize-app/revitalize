@@ -11,7 +11,7 @@ class contributeForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            amount: 1,
+            amount: 0,
             
         }
         this.projectService = new ProjectService()
@@ -34,7 +34,7 @@ class contributeForm extends Component {
             let amount = this.state.amount
             let contribution = {
                 modifiedAmount:this.props.project.currentAmount += Number(amount),
-                modifiedWallet:this.props.creator.wallet -= Number(amount),
+                modifiedWallet: this.props.creator.wallet -= Number(amount),
                 modifiedMoneySpent:this.props.creator.moneySpent += Number(amount),
                 project: this.props.project._id,
                 creator: this.props.creator._id
@@ -46,7 +46,7 @@ class contributeForm extends Component {
                 .then(response => this.props.setTheUser(response.data[1]))
                 .then(() => this.props.finishProjectPost())
                 .catch(err => console.log(err))
-        //}
+         //}
     }
 
     render() {

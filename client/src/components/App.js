@@ -28,16 +28,19 @@ class App extends Component {
     )
 
   fetchUser = () => {
-    if (this.state.loggedInUser === null) {
       this.authService
         .isLoggedIn()
         .then((response) => this.setTheUser(response.data))
         .catch(() => this.setTheUser(false));
-    }
+    
+  }
+
+  componentDidMount(){
+    this.state.user === null &&  this.fetchUser()
   }
 
   render() {
-    this.fetchUser()
+
 
     return (
       <>
@@ -57,7 +60,7 @@ class App extends Component {
             />
             <Route
               path="/projects/:projectId"
-              render={(props) => <ProjectDetails setTheUser={this.setTheUser} {...props} user={this.state.loggedInUser}/>}
+              render={(props) => <ProjectDetails setTheUser={this.setTheUser} fetchUser={this.fetchUser} {...props} user={this.state.loggedInUser}/>}
             />
             <Route
               path="/signup"
@@ -75,7 +78,7 @@ class App extends Component {
               path="/profile"
               render={() =>
                 this.state.loggedInUser ? (
-                  <Profile loggedInUser={this.state.loggedInUser} />
+                  <Profile  loggedInUser={this.state.loggedInUser} />
                 ) : (
                   <Redirect to="/" />
                 )

@@ -31,22 +31,47 @@ router.post('/createProject',ensureLoggedIn, (req, res, next) => {
 router.post('/updateProject' , ensureLoggedIn, (req, res, next) => {
     console.log("ENTRA EN LA RUTA", req.body)
     const {project, modifiedAmount, modifiedWallet,  modifiedMoneySpent, creator} = req.body
-    let updateProject = Project.findByIdAndUpdate(project, {
-        $push:{contributors:creator},
-        currentAmount: modifiedAmount,
-    }, {new: true})
-    let updateUser = User.findByIdAndUpdate(creator, 
-        {
-        wallet: modifiedWallet,
-        moneySpent: modifiedMoneySpent,
-        $push: {contributing: project},
-    }, {new: true}) 
+    User.findById(creator)
+    .then(creator=>{
+        if(creator.contributing.includes(project)){
+            let updateProject = Project.findByIdAndUpdate(project, {
+                currentAmount: modifiedAmount,
+            }, {new: true})
 
-    Promise.all([updateProject, updateUser])
-        .then(data => {
-            console.log("HA FUNCIONADO")
-            res.json(data)})
-        .catch(err => console.log(err))
+            let updateUser = User.findByIdAndUpdate(creator, 
+                {
+                wallet: modifiedWallet,
+                moneySpent: modifiedMoneySpent,
+            }, {new: true}) 
+            Promise.all([updateProject, updateUser])
+            .then(data => {
+                console.log("HA FUNCIONADO")
+                res.json(data)})
+            .catch(err => console.log(err))
+
+        }else{
+            let updateProject = Project.findByIdAndUpdate(project, {
+                $push:{contributors:creator},
+                currentAmount: modifiedAmount,
+            }, {new: true})
+
+            let updateUser = User.findByIdAndUpdate(creator, 
+                {
+                wallet: modifiedWallet,
+                moneySpent: modifiedMoneySpent,
+                $push: {contributing: project},
+            }, {new: true}) 
+            Promise.all([updateProject, updateUser])
+            .then(data => {
+                console.log("HA FUNCIONADO")
+                res.json(data)})
+            .catch(err => console.log(err))
+        }
+    })
+    .catch(err => console.log(err))
+  
+
+   
 })
 
 
