@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="96px" height="32px" viewBox="0 0 96 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Buton C</title>
+    <g id="Buton-C" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g>
+            <rect stroke="#1FB36F" x="0.5" y="0.5" width="95" height="31" rx="12"></rect>
+            <path d="M0,16 L96,16 L96,20 C96,26.627417 90.627417,32 84,32 L12,32 C5.372583,32 8.11624501e-16,26.627417 0,20 L0,16 L0,16 Z" id="Rectangle" fill="#1FB36F"></path>
+            <text id="APPLY" font-family="Montserrat-SemiBold, Montserrat" font-size="12" font-weight="500" fill="#FFFFFF">
+                <tspan x="27.234" y="28.5">APPLY</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
