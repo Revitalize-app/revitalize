@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Cancel</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="44" height="44"></rect>
+    </defs>
+    <g id="Cancel" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g>
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <g id="Mask"></g>
+            <path d="M15.840757,15.622894 L28.5686791,28.3508161 M15.768992,28.377106 L28.4969141,15.6491839" id="Icon" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" mask="url(#mask-2)"></path>
+        </g>
+    </g>
+</svg>

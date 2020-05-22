@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="12px" viewBox="0 0 16 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon</title>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Section-Footer-Button" transform="translate(-298.000000, -16.000000)" stroke="#FFFFFF" stroke-width="2">
+            <g id="Group">
+                <g transform="translate(284.000000, 0.000000)">
+                    <path d="M23.0557861,17 L29.0087891,21.9522705 L23.0557861,26.9929199 M23,22 L15,22" id="Icon"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

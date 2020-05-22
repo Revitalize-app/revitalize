@@ -62,7 +62,7 @@ Promise.all([deleteUsers, deleteProjects])
                     description: faker.lorem.sentences(3),
                     likes: faker.random.number(),
                     loc: {
-                        city: faker.address.city(),
+                        city: 'Madrid',
                         coordinates: [ randomLatitude(), randomLongitude()]
                     },
                     photos: faker.image.city(),
