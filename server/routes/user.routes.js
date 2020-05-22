@@ -6,7 +6,7 @@ const User = require("../models/user.model")
 const ensureLoggedIn = (req, res, next) => req.isAuthenticated() ? next() : res.redirect('/login')
 
 
-router.get("/getAllUsers", ensureLoggedIn, (req, res, next) => {
+router.get("/getAllUsers",  (req, res, next) => {
   User.find()
     .populate('ownProjects')
     .then((data) => res.json(data))

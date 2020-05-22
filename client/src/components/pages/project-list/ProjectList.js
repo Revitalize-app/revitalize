@@ -11,6 +11,7 @@ import Row from "react-bootstrap/Row"
 import Button from "react-bootstrap/Button"
 import Toast from "react-bootstrap/Toast"
 import Modal from "react-bootstrap/Modal"
+import Spinner from 'react-bootstrap/Spinner'
 
 class ProjectList extends Component {
   constructor(props) {
@@ -39,6 +40,7 @@ class ProjectList extends Component {
       .getAllProjects()
       .then(response => this.setState({ projects: response.data }))
       .catch(err => console.log(err))
+      
   }
 
   componentDidMount = () => {
@@ -54,10 +56,11 @@ class ProjectList extends Component {
 
   render() {
     return (
-      <>
+      <div className="projects">
       
-      <Container as="section">
-        <h1>Projects List</h1>
+        <br></br>
+        <br></br>
+        <h3>Discover</h3>
 
         {this.props.loggedInUser && (
           <Button
@@ -67,10 +70,11 @@ class ProjectList extends Component {
           >
             Create new project
           </Button>
-        )}
 
+        )}
+      
         {!this.state.projects ? 
-        <h1>Loading...</h1> : 
+          <Spinner className='spinner' animation="border" variant="success" /> : 
         <Row className="projects-list">
           {this.state.projects.map((elm) => (
             <ProjectCard key={elm._id} {...elm} />
@@ -107,8 +111,8 @@ class ProjectList extends Component {
           </Toast.Header>
           <Toast.Body>{this.state.toast.text}</Toast.Body>
         </Toast>
-      </Container>
-      </>
+      
+      </div>
     )
   }
 }

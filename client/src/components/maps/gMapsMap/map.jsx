@@ -44,7 +44,7 @@ export default class GmapMap extends Component {
                     <Marker
                     lat={this.props.pos.coordinates}
                     lng={this.props.pos.coordinates}
-                    draggable={true}
+                    draggable={false}
                     text="Dirty place"
                 />
                     }

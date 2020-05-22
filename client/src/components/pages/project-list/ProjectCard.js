@@ -14,6 +14,7 @@ const ProjectCard = props => {
                 <Card.Img variant="top" src={props.photos} />
                 <Card.Body>
                     <Card.Title>{props.description}</Card.Title>
+                <hr></hr>
                     <small>#{props.projectType}</small>
                     <p>{props.loc.city}</p>
                     <Link to={`/projects/${props._id}`} className="btn-primary  btn-block">see more details</Link>

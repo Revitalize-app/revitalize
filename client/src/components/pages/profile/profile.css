@@ -37,7 +37,10 @@
     margin: 30px 0;
 }
 
-.projects-profile {
-    margin: 0 0 30px 0;
-    overflow: scroll;
+
+
+.projects-profile img {
+    
+    height: 110px;
+    object-fit: cover;
 }

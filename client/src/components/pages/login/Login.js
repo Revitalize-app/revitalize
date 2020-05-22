@@ -80,14 +80,14 @@ class Login extends Component {
                 {this.state.errorMessage}
               </p>
 
-              <Button variant="dark" type="submit">
+              <Button variant="primary" type="submit">
                 Log in
               </Button>
             </Form>
 
             <p>
               <small>
-                Don´t you have an account yet? <Link to="/signup">Sign Up</Link>
+                Don´t you have an account yet? <Link style={{color: 'blue'}} to="/signup">Sign Up</Link>
               </small>
             </p>
           </Col>

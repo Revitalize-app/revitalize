@@ -12,7 +12,9 @@ const bcryptSalt = 10
 const salt = bcrypt.genSaltSync(bcryptSalt)
 
 
-//const randomNum = (max) => Math.floor(Math.random() * (max - 1))
+const randomFloat = (max, min = 0) => Math.random() * (max - min) + min
+const randomLatitude = () => randomFloat(40.481555, 40.375425)
+const randomLongitude = () => randomFloat(-3.647014, -3.729187)
 
 let allProjects = []
 let allU = []
@@ -32,9 +34,9 @@ Promise.all([deleteUsers, deleteProjects])
                 email: faker.internet.email(),
                 password: bcrypt.hashSync('lala', salt),
                 city: faker.address.city(),
-                location: {
+                loc: {
                     type: 'Point',
-                    coordinates: [ faker.address.longitude(),faker.address.latitude()]
+                    coordinates: [ randomLatitude(),randomLongitude()]
                 },
                 profileImg: faker.internet.avatar(),
                 typeUser: faker.random.arrayElement(['person', 'enterprise']),
@@ -61,7 +63,7 @@ Promise.all([deleteUsers, deleteProjects])
                     likes: faker.random.number(),
                     loc: {
                         city: faker.address.city(),
-                        coordinates: [ faker.address.latitude(), faker.address.longitude()]
+                        coordinates: [ randomLatitude(), randomLongitude()]
                     },
                     photos: faker.image.city(),
                     goal: faker.random.arrayElement([10,20,30,40]),

@@ -41,7 +41,7 @@ import './profile.css'
         render() {
             return (
                 <>
-                <Container className="main-container">
+                <div className="main-container">
                     <Container as="section" className="profile-header">
 
                         <Row as="header">
@@ -56,10 +56,10 @@ import './profile.css'
 
                     </Container>
 
-                    <Container as="section" className="profile-projects">
+                    <Container as="section" className="profile-projects ">
 
                         <h5>Own projects</h5>
-                    <Row as='article' className="projects-profile">
+                    <Row as='article' className="projects-profile flex-row flex-nowrap">
                         {this.props.loggedInUser.ownProjects.map((elm, idx) => (
                     <ProfileCard key={idx} {...elm} />
                         ))}
@@ -73,7 +73,7 @@ import './profile.css'
                     </Row>
 
                     <h5>Helping</h5>
-                    <Row as='article' className="projects-profile">
+                    <Row as='article' className="projects-profile flex-row flex-nowrap">
                         {this.props.loggedInUser.helping.map((elm , idx) => (
                     <ProfileCard key={idx} {...elm} />
                         ))}
@@ -87,7 +87,7 @@ import './profile.css'
                         </Col>
                     </Row>
                     </Container>
-                    </Container>
+                    </div>
 
                 </>
             )

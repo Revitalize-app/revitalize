@@ -10,7 +10,7 @@ export default class GmapsPlaces extends React.Component {
     }
     handleChange = city => {
         this.setState({ city })
-    };
+    }
     handleSelect = city => {
         geocodeByAddress(city)
             .then(results => getLatLng(results[0]))
@@ -19,7 +19,7 @@ export default class GmapsPlaces extends React.Component {
                 this.props.getData(this.state)
             })
             .catch(error => console.error('Error', error))
-    };
+    }
     render() {
         return (
             <div>

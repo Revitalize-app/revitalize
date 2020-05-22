@@ -24,7 +24,9 @@ const projectSchema = new Schema({
     goal: {
         type: Number,
         required: true},
-    currentAmount: Number,
+    currentAmount: {
+        type: Number,
+        default: 0},
     helpersNeeded: {
         type: Number,
         required: true},

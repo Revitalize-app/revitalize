@@ -3,6 +3,9 @@
     
 }
 
+.projects {
+    overflow: hidden;
+}
 .project-list-card{
     border: none;
     margin: 40px 0;
@@ -13,5 +16,5 @@
 }
 
 .create-modal {
-    margin-top: 10vh;
+    margin-top: 10px;
 }

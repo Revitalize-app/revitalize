@@ -12,6 +12,7 @@ import ProjectDetails from "./pages/project-details/ProjectDetails"
 import Signup from "./pages/signup/Signup"
 import Login from "./pages/login/Login"
 import Profile from "./pages/profile/Profile"
+import Home from './pages/home/Home'
 
 import AuthService from "./../service/auth.service"
 
@@ -53,6 +54,13 @@ class App extends Component {
 
         <main>
           <Switch>
+            <Route
+              path="/"
+              exact
+              render={() => (
+                <Home loggedInUser={this.state.loggedInUser} />
+              )}
+            />
             <Route
               path="/projects"
               exact

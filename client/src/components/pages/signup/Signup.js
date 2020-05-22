@@ -104,10 +104,10 @@ class Signup extends Component {
                                 style={{ display: this.state.errorMessage ? 'block' : 'none' }}
                             >{this.state.errorMessage}</p>
 
-                            <Button variant="dark" type="submit">Sign up</Button>
+                            <Button variant="primary" type="submit">Sign up</Button>
                         </Form>
 
-                        <p><small>Do you have already an account? <Link to="/login">Login</Link></small></p>
+                        <p><small>Do you have already an account? <Link style={{color: 'blue'}} to="/login">Login</Link></small></p>
 
                     </Col>
                 </Row>

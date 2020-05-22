@@ -8,6 +8,8 @@ import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import Toast from "react-bootstrap/Toast"
 import Modal from "react-bootstrap/Modal"
+import Spinner from 'react-bootstrap/Spinner'
+
 import ContributeForm from './contributeForm'
 
 import './ProjectDetails.css'
@@ -67,7 +69,7 @@ class ProjectDetails extends Component {
         return(
             <>
             {!this.state.project ?
-            <h1>Loading...</h1> :
+            <Spinner className='spinner' animation="border" variant="success" /> :
             <Container as="section" className="project-details">
 
                 <Row>
