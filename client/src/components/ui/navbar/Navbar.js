@@ -29,7 +29,7 @@ class Navigation extends Component {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav>
                         <Nav.Link as="div"><Link to="/"> <img src='/images/icon_home.svg'></img> Home</Link></Nav.Link>
-                        <Nav.Link as="div"><Link to="/projects"> <img src='/images/filter.svg'></img> Discover projects</Link></Nav.Link>
+                        <Nav.Link as="div"><Link to="/projects"> <img src='/images/icon_search_notag.svg'></img> Discover projects</Link></Nav.Link>
 
                         {
                             !this.props.loggedInUser ?
