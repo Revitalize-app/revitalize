@@ -40,7 +40,7 @@ class Navigation extends Component {
 
                                 :
                                 <>
-                                    <Nav.Link as="div"><Link to="/profile"><img style={{width: '30px', borderRadius:'15px', marginRight:'10px', marginLeft:'6px'}} src={this.props.loggedInUser.profileImg}></img> My profile</Link></Nav.Link>
+                                    <Nav.Link as="div"><Link to="/profile"><img style={{width: '30px', height:'30px', objectFit:'cover', borderRadius:'15px', marginRight:'10px', marginLeft:'6px'}} src={this.props.loggedInUser.profileImg}></img> My profile</Link></Nav.Link>
                                     <Navbar.Text style={{color:'white'}} >{this.props.loggedInUser ? 'Wallet: ' + this.props.loggedInUser.wallet + '€' : null}</Navbar.Text>
                                     <Nav.Link style={{color:'white'}} as="div" onClick={this.logout}>Close session</Nav.Link>
                                 </>

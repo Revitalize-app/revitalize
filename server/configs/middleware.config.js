@@ -4,7 +4,7 @@ const logger = require('morgan')
 const cors = require('cors')
 
 // CORS setup
-const whitelist = [process.env.DOMAIN]
+const whitelist = [process.env.DOMAIN, 'http://revitalize.herokuapp.com']
 const corsOptions = {
     origin: (origin, cb) => {
         const originIsWhitelisted = whitelist.includes(origin)
