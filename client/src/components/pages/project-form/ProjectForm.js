@@ -32,12 +32,13 @@ class ProjectForm extends Component {
     handleFileUpload = e => {
         const uploadData = new FormData()
         uploadData.append('photos', e.target.files[0])
+        console.log(e.target.files[0])
         this.fileService.handleUploadPhotos(uploadData)
             .then(response => {
                 console.log('El archivo ya se ha subido. La URL de cloudinary es: ', response.data.secure_url)
                 this.setState({photos: response.data.secure_url })
             })
-            .catch(err => console.log(err))
+        .catch(err => console.log(err))
     }
 
     getData = (data) =>{

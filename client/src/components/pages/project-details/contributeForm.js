@@ -28,9 +28,18 @@ class contributeForm extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        // if(this.state.amount > this.props.creator.wallet || this.state.amount + this.props.project.currentAmount > this.props.project.goal){
-        //     console.log("TE HAS PASAO HULIO")
-        // }else{
+        let tuto = Number(this.props.project.currentAmount) + Number(this.state.amount) 
+        
+        if(this.props.project.goal < tuto) {
+
+            alert('The goal is complete, you can contribute in another project, thanks!')
+        }
+            
+        else if (this.props.creator.wallet < this.state.amount){
+
+            alert('You´re broke!')
+
+        }else{
             let amount = this.state.amount
             let contribution = {
                 modifiedAmount:this.props.project.currentAmount += Number(amount),
@@ -39,14 +48,13 @@ class contributeForm extends Component {
                 project: this.props.project._id,
                 creator: this.props.creator._id
             }
-            console.log("En el submit --->")
-            console.log(contribution)
+
             this.projectService.updateProject(contribution)
-                //.then(response => console.log(response.data))
+                
                 .then(response => this.props.setTheUser(response.data[1]))
                 .then(() => this.props.finishProjectPost())
                 .catch(err => console.log(err))
-        //} 
+        } 
     }
 
     render() {
