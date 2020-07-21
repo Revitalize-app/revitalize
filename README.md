@@ -35,24 +35,7 @@ $ npm start (inside client)
 
 ## Endpoints WIP
 
-| Id | Method | Path | Description |
-| ---| -------| -----| ------------|
-| 1. | get    | /    | Show home page |
-| 2. | get    | /discover?[filter]*    | Go to discover page, you can filter your songs and artists by genre or popularity | 
-| 3. | get    | /search    | Search (by artist, song name) | 
-| 4. | post   | /search?[queries]   | Add queries to filter your search | 
-| 5. | get    | /ranking/songs    | Show the ranking of the most played or most liked songs| 
-| 6. | get    | /ranking/artists    | Show the ranking of the most played or most liked artists| 
-| 7. | get    | /ranking/albums| Show the ranking of the most played or most liked albums| 
-| 8. | get    | /profile | Show your profile page | 
-| 9. | post    | /profile/edit    | Edit your personal profile | 
-| 10. | post    | /profile/new-song    | Upload a new song | 
-| 11. | get    | /user/:id    | Show details about that user | 
-| 12. | get    | /song/:id    | Show details and comments of that song | 
-| 13. | post    | /song/:id/comment    | Add a new comment | 
-| 14. | get    | /collab/:id    | Show the form to ask for colaboration | 
-| 15. | post    | /collab/:id    | Send an email to colaborate | 
-| 16. | get    | /about-us/    | General information about this platform | 
+WIP
 
 
 
@@ -78,4 +61,4 @@ $ npm start (inside client)
 ## Author
 
 
-* https://github.com/orgs/Damage-Sound/people/MadalinGeorge < Madalin George
+* https://github.com/MadalinGeorge < Madalin George
