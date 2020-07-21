@@ -31,7 +31,7 @@ class contributeForm extends Component {
         let tuto = Number(this.props.project.currentAmount) + Number(this.state.amount) 
         
         if(this.props.project.goal < tuto) {
-
+            //TODO: Change the alerts for toasts
             alert('The goal is complete, you can contribute in another project, thanks!')
         }
             

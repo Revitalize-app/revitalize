@@ -6,7 +6,6 @@ import "./ProjectList.css"
 import ProjectCard from "./ProjectCard"
 import ProjectForm from "../project-form/ProjectForm"
 
-import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Button from "react-bootstrap/Button"
 import Toast from "react-bootstrap/Toast"
